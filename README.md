@@ -17,7 +17,7 @@ classDiagram
     }
 
     class Corretor {
-        +string CRECI 
+        +string ID 
         +string Nome
     }
 
