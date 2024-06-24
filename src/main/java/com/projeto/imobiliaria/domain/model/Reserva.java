@@ -26,8 +26,8 @@ public class Reserva {
     @Cascade(CascadeType.ALL)
     private Imovel imovelId;
 
-    @OneToMany
+    @ManyToOne
     @Cascade(CascadeType.ALL)
-    private List<Cliente> clienteId;
+    private Cliente clienteId;
 
 }

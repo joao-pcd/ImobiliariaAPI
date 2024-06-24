@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Entity(name = "tb_imovel")
 @Getter
@@ -15,8 +14,8 @@ public class Imovel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany
-    private List<Endereco> endereco;
+    @ManyToOne
+    private Endereco endereco;
 
     @Column(precision = 13, scale = 2)
     private BigDecimal preco;

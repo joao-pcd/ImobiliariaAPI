@@ -22,10 +22,10 @@ public class Transacao {
     @Cascade(CascadeType.ALL)
     private Imovel imovel;
 
-    @OneToMany
+    @ManyToOne
     @Cascade(CascadeType.ALL)
-    private List<Cliente> comprador;
+    private Cliente comprador;
 
-    @OneToMany
-    private List<Corretor> corretor;
+    @ManyToOne
+    private Corretor corretor;
 }
