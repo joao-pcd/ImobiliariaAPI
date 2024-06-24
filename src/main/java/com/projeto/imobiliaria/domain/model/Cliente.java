@@ -8,4 +8,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Cliente extends Pessoa{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 }

@@ -6,6 +6,7 @@ import org.hibernate.annotations.CascadeType;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Entity(name = "tb_transacao")
 public class Transacao {
@@ -23,8 +24,8 @@ public class Transacao {
 
     @OneToMany
     @Cascade(CascadeType.ALL)
-    private Cliente comprador;
+    private List<Cliente> comprador;
 
     @OneToMany
-    private Corretor corretor;
+    private List<Corretor> corretor;
 }

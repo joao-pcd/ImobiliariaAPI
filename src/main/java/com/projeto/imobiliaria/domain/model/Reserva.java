@@ -7,6 +7,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity(name = "tb_reserva")
 @Getter
@@ -27,6 +28,6 @@ public class Reserva {
 
     @OneToMany
     @Cascade(CascadeType.ALL)
-    private Cliente clienteId;
+    private List<Cliente> clienteId;
 
 }
