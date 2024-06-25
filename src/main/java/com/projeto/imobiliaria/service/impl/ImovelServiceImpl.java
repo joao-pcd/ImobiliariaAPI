@@ -5,13 +5,14 @@ import com.projeto.imobiliaria.domain.model.Imovel;
 import com.projeto.imobiliaria.domain.repository.EnderecoRepository;
 import com.projeto.imobiliaria.domain.repository.ImovelRepository;
 import com.projeto.imobiliaria.service.ImovelService;
-import com.projeto.imobiliaria.service.ViaCepService;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 
+@Service
 @AllArgsConstructor
 public class ImovelServiceImpl implements ImovelService {
 
@@ -19,7 +20,7 @@ public class ImovelServiceImpl implements ImovelService {
 
     private EnderecoRepository enderecoRepository;
 
-    private ViaCepService viaCepService;
+    private ViaCepServiceImpl viaCepServiceImpl;
 
     @Transactional(readOnly = true)
     @Override
@@ -57,7 +58,7 @@ public class ImovelServiceImpl implements ImovelService {
     private Imovel salvaImovelComEndereco(Imovel imovel) {
         String cep = imovel.getEndereco().getCep();
         Endereco endereco = enderecoRepository.findById(cep).orElseGet(() ->{
-            Endereco novoEndereco = viaCepService.consultaEndereco(cep);
+            Endereco novoEndereco = viaCepServiceImpl.consultaEndereco(cep);
             enderecoRepository.save(novoEndereco);
             return novoEndereco;
         });
