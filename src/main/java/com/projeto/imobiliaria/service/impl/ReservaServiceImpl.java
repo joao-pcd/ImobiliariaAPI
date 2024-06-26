@@ -60,7 +60,7 @@ public class ReservaServiceImpl implements ReservaService {
         }
 
         if (clienteRepository.findById(reserva.getClienteId().getId()).isEmpty()){
-            throw new IllegalArgumentException("ID do imóvel não foi cadastrado no banco de dados");
+            throw new IllegalArgumentException("ID do cliente não foi cadastrado no banco de dados");
         }
 
         return reservaRepository.save(reserva);
