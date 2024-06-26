@@ -1,5 +1,6 @@
 package com.projeto.imobiliaria.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +20,9 @@ public class Reserva {
 
     @Column(nullable = false)
     private Date data;
-    private String status;
+
+    @JsonIgnore
+    private String status = "Pendente";
 
     @OneToOne
     @Cascade(CascadeType.ALL)
