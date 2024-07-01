@@ -25,16 +25,16 @@ public class Transacao {
     private BigDecimal valor;
 
     @OneToOne
-    @Column(nullable = false)
+    @PrimaryKeyJoinColumn(name = "imovel_id")
     @Cascade(CascadeType.ALL)
     private Imovel imovel;
 
     @ManyToOne
-    @Column(nullable = false)
+    @JoinColumn(nullable = false, name = "comprador_id")
     @Cascade(CascadeType.ALL)
     private Cliente comprador;
 
-    @Column(nullable = false)
+    @JoinColumn(nullable = false, name = "corretor_id")
     @ManyToOne
     private Corretor corretor;
 }
